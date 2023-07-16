@@ -1,5 +1,5 @@
 import { RawDraftContentState } from 'draft-js';
-import { iMishna } from '../types/types';
+import { iMishna, iTractate } from '../types/types';
 import axiosInstance from './api';
 
 export interface RichTextsMishnas {
@@ -48,10 +48,10 @@ export default class PageService {
     return response.data;
   }
 
-  static async getAllTractates() {
+  static async getAllTractates(): Promise<iTractate[]> {
     const url = `/tractates`;
     const response = await axiosInstance.get(url);
-    return response.data;
+    return response.data.tractates;
   }
 
 }

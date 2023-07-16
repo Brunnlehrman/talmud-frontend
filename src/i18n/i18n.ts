@@ -59,7 +59,8 @@ i18n
           'Public comment': 'הערה ציבורית',
           'Personal comment': 'הערה אישית',
           'Line number': 'מספר שורה',
-          'Demo': 'מדגים יכולות'
+          Line: 'שורה ',
+          Demo: 'מדגים יכולות',
         },
       },
     },

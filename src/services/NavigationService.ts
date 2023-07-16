@@ -1,4 +1,4 @@
-import { iMishnaForNavigation } from '../components/shared/ChooseMishnaBar';
+import { iMishnaForNavigation } from '../components/shared/ChooseMishna/ChooseMishna';
 import axiosInstance from './api';
 
 export default class NavigationService {

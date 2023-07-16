@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => {
 
 const MishnaText = (props) => {
   const { html, mishna } = props;
-  const mishnaTitle = mishna ? `[משנה ${hebrewMap.get(parseInt(mishna))}]` : null;
+  const mishnaTitle = mishna ? `[משנה ${hebrewMap.get(mishna)}]` : null;
 
   const classes = useStyles();
   return (

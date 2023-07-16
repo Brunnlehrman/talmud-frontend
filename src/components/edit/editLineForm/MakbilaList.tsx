@@ -11,11 +11,10 @@ import Menu from '@mui/material/Menu';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from 'react-i18next';
-import { iInternalLink } from '../../../types/types';
+import { iInternalLink, iLink } from '../../../types/types';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import DeleteIcon from '@mui/icons-material/Delete';
 import LinkPopup from '../../popups/LinkPopup';
-import { iSelectedNavigation } from '../../shared/ChooseMishna';
 import { ListItemSecondaryAction } from '@mui/material';
 import { hebrewMap } from '../../../inc/utils';
 
@@ -32,16 +31,14 @@ export const MakbilaMenu = (props: Props) => {
     <>
       <LinkPopup
         open={open}
-        onClose={(e: iSelectedNavigation) => {
-          if (e) {
+        onClose={(makbila: iLink | null) => {
+          if (makbila) {
             const link = {
-              linkText: `${e.selectedTractate.title_heb} ${hebrewMap.get(
-                parseInt(e.selectedChapter.id)
-              )} ${hebrewMap.get(parseInt(e.selectedMishna.mishna))} `,
-              tractate: e.selectedTractate.id,
-              chapter: e.selectedChapter.id,
-              mishna: e.selectedMishna.mishna,
-              lineNumber: e.selectedLine,
+              linkText: `${hebrewMap.get(makbila.chapter)} ${hebrewMap.get(makbila.mishna)} ${makbila.lineNumber}`,
+              tractate: makbila.tractate,
+              chapter: makbila.chapter,
+              mishna: makbila.mishna,
+              lineNumber: makbila.lineNumber,
             };
             onUpdateInternalSources([...parallels, link]);
           }
